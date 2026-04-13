@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useId } from 'react';
+import { useState, useCallback, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BorderBeam, type BorderBeamSize, type BorderBeamColorVariant } from 'border-beam';
 
@@ -175,7 +175,6 @@ const COLOR_OPTIONS: { value: BorderBeamColorVariant; label: string }[] = [
 ];
 
 export default function App() {
-  const [isMobileHero, setIsMobileHero] = useState(false);
   const [playgroundActive, setPlaygroundActive] = useState(true);
   const [playgroundSize, setPlaygroundSize] = useState<BorderBeamSize>('md');
   const [playgroundColorVariant, setPlaygroundColorVariant] = useState<BorderBeamColorVariant>('colorful');
@@ -183,14 +182,6 @@ export default function App() {
   const [playgroundStrength, setPlaygroundStrength] = useState(70);
   const durationId = useId();
   const strengthId = useId();
-
-  useEffect(() => {
-    const media = window.matchMedia('(max-width: 639px)');
-    const update = () => setIsMobileHero(media.matches);
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, []);
 
   const installCmd = 'npm install border-beam';
   const usageCode = `import { BorderBeam } from 'border-beam';
@@ -237,11 +228,11 @@ export default function App() {
             </div>
             <div className="example-cell">
               <BorderBeam
-                size={isMobileHero ? 'md' : 'line'}
+                size="line"
                 colorVariant="colorful"
                 theme="dark"
                 active
-                duration={isMobileHero ? 1.96 : 2.4}
+                duration={2.4}
                 borderRadius={20}
               >
                 <MockSearchBar />
