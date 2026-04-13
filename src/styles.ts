@@ -560,27 +560,35 @@ function getLineBloomGradients(colorVariant: BorderBeamColorVariant, isDark: boo
 
   // Mono uses uniform gray so thin spikes at full opacity look like harsh bars.
   // Attenuate opacity and widen the thin gradients so they appear as soft glows.
-  const att = isMono ? 0.28 : 1;
-  const sc1     = isMono ? attenuateSpike(spikeColors.primary, 0.28) : spikeColors.primary;
-  const sc1_mid = isMono ? attenuateSpike(spikeColors.primary, 0.18) : spikeColors.primary;
-  const sc2     = isMono ? attenuateSpike(spikeColors.secondary, 0.25) : spikeColors.secondary;
-  const sc2_mid = isMono ? withAlpha(spikeColors.secondary, 0.12) : withAlpha(spikeColors.secondary, 0.49);
+  const att = isMono ? 0.14 : 1;
+  const sc1     = isMono ? attenuateSpike(spikeColors.primary, 0.14) : spikeColors.primary;
+  const sc1_mid = isMono ? attenuateSpike(spikeColors.primary, 0.09) : spikeColors.primary;
+  const sc2     = isMono ? attenuateSpike(spikeColors.secondary, 0.12) : spikeColors.secondary;
+  const sc2_mid = isMono ? withAlpha(spikeColors.secondary, 0.06) : withAlpha(spikeColors.secondary, 0.49);
 
   const spikes = bloomData.spikes.map(s => isMono
     ? { color1: attenuateSpike(s.color1, att), color2: attenuateSpike(s.color2, att * 0.7) }
     : s
   );
 
-  // Mono: widen narrow spikes (original 0.6–2px) to 4–8px soft glows; shorten heights
-  const thinW1 = isMono ? '5px'   : '0.8px';
-  const thinW2 = isMono ? '6px'   : '2px';
-  const thinW3 = isMono ? '5px'   : '1.2px';
-  const thinW4 = isMono ? '4px'   : '0.6px';
+  // Mono: wide, blurred soft spikes; shortened heights
+  const thinW1 = isMono ? '12px'  : '0.8px';
+  const thinW2 = isMono ? '14px'  : '2px';
+  const thinW3 = isMono ? '12px'  : '1.2px';
+  const thinW4 = isMono ? '10px'  : '0.6px';
   const thinH1 = isMono ? '42px'  : '92px';
   const thinH2 = isMono ? '38px'  : '72px';
   const thinH3 = isMono ? '40px'  : '85px';
   const thinH4 = isMono ? '32px'  : '60px';
-  const thinLW = isMono ? '5px'   : '1px'; // light-mode last thin spike
+  const thinLW = isMono ? '12px'  : '1px';
+
+  // Main glow: center dot + ambient — mono gets 50% lower opacity
+  const glowDotC   = isMono ? 'rgba(255, 255, 255, 0.5)'  : 'rgba(255, 255, 255, 1)';
+  const glowDot20  = isMono ? 'rgba(255, 255, 255, 0.45)' : 'rgba(255, 255, 255, 0.9)';
+  const glowDot50  = isMono ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.5)';
+  const glowAmbC   = isMono ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.3)';
+  const glowAmb25  = isMono ? 'rgba(255, 255, 255, 0.06)' : 'rgba(255, 255, 255, 0.12)';
+  const glowAmb55  = isMono ? 'rgba(255, 255, 255, 0.015)': 'rgba(255, 255, 255, 0.03)';
 
   if (isDark) {
     return `radial-gradient(ellipse calc(${thinW1} * var(--beam-spike-${id})) calc(${thinH1} * var(--beam-h-${id})) at 8% calc(100% - 2px), ${sc1}, ${sc1_mid} 30%, transparent 88%),
@@ -590,11 +598,11 @@ function getLineBloomGradients(colorVariant: BorderBeamColorVariant, isDark: boo
        radial-gradient(ellipse calc(${thinW3} * (2 - var(--beam-spike2-${id}))) calc(${thinH3} * var(--beam-h-${id})) at 64% calc(100% - 4px), ${spikes[2].color1}, ${spikes[2].color2} 35%, transparent 89%),
        radial-gradient(ellipse calc(7px * var(--beam-spike-${id})) calc(45px * var(--beam-h-${id})) at 78% calc(100% - 2px), ${spikes[3].color1}, ${spikes[3].color2} 48%, transparent 94%),
        radial-gradient(ellipse calc(${thinW4} * (2 - var(--beam-spike-${id}))) calc(${thinH4} * var(--beam-h-${id})) at 92% calc(100% - 3px), ${spikes[4].color1}, ${spikes[4].color2} 42%, transparent 91%),
-       radial-gradient(ellipse calc(21px * var(--beam-spike-${id})) calc(15px * var(--beam-spike2-${id})) at calc(var(--beam-x-${id}) * 100%) calc(100% + 1px), rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 20%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
-       radial-gradient(ellipse calc(42px * var(--beam-w-${id})) calc(40px * var(--beam-h-${id})) at calc(var(--beam-x-${id}) * 100%) 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.12) 25%, rgba(255, 255, 255, 0.03) 55%, transparent 80%)`;
+       radial-gradient(ellipse calc(21px * var(--beam-spike-${id})) calc(15px * var(--beam-spike2-${id})) at calc(var(--beam-x-${id}) * 100%) calc(100% + 1px), ${glowDotC} 0%, ${glowDot20} 20%, ${glowDot50} 50%, transparent 100%),
+       radial-gradient(ellipse calc(42px * var(--beam-w-${id})) calc(40px * var(--beam-h-${id})) at calc(var(--beam-x-${id}) * 100%) 100%, ${glowAmbC} 0%, ${glowAmb25} 25%, ${glowAmb55} 55%, transparent 80%)`;
   } else {
-    const sc1_lt = isMono ? attenuateSpike(spikeColors.primary, 0.22) : withAlpha(spikeColors.primary, 0.85);
-    const sc2_lt = isMono ? attenuateSpike(spikeColors.secondary, 0.18) : withAlpha(spikeColors.secondary, 0.7);
+    const sc1_lt = isMono ? attenuateSpike(spikeColors.primary, 0.11) : withAlpha(spikeColors.primary, 0.85);
+    const sc2_lt = isMono ? attenuateSpike(spikeColors.secondary, 0.09) : withAlpha(spikeColors.secondary, 0.7);
     return `radial-gradient(ellipse calc(${thinW1} * var(--beam-spike-${id})) calc(${thinH1} * var(--beam-h-${id})) at 8% calc(100% - 2px), ${sc1}, ${sc1_lt} 30%, transparent 88%),
        radial-gradient(ellipse calc(10px * var(--beam-spike2-${id})) calc(35px * var(--beam-h-${id})) at 22% calc(100% - 4px), ${sc2}, ${sc2_lt} 50%, transparent 95%),
        radial-gradient(ellipse calc(${thinW2} * (2 - var(--beam-spike-${id}))) calc(${thinH2} * var(--beam-h-${id})) at 36% calc(100% - 3px), ${spikes[0].color1}, ${spikes[0].color2} 40%, transparent 90%),
@@ -1192,6 +1200,7 @@ function generateLineVariantCSS(options: GenerateStylesOptions): string {
   const innerGradients = getLineInnerGradients(colorVariant, id);
 
   const bloomGradients = getLineBloomGradients(colorVariant, isDark, id);
+  const monoBloomBlur = colorVariant === 'mono' ? 'filter: blur(6px);' : '';
 
   return `
 @property --beam-x-${id} {
@@ -1342,6 +1351,7 @@ function generateLineVariantCSS(options: GenerateStylesOptions): string {
   );
   mask-composite: add;
   background: ${bloomGradients};
+  ${monoBloomBlur}
   pointer-events: none;
   z-index: 3;
   opacity: 0;
