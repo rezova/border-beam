@@ -19,8 +19,9 @@ export type BorderBeamTheme = 'dark' | 'light' | 'auto';
  * - 'mono': Monochromatic grayscale
  * - 'ocean': Blue and purple tones
  * - 'sunset': Warm orange, yellow, and red tones
+ * - 'gold': Metallic gold, amber, and bronze tones
  */
-export type BorderBeamColorVariant = 'colorful' | 'mono' | 'ocean' | 'sunset';
+export type BorderBeamColorVariant = 'colorful' | 'mono' | 'ocean' | 'sunset' | 'gold';
 
 /**
  * Configuration for a size preset
@@ -65,6 +66,7 @@ export interface BorderBeamProps extends Omit<HTMLAttributes<HTMLDivElement>, 'c
    * - 'mono': Monochromatic grayscale
    * - 'ocean': Blue and purple tones
    * - 'sunset': Warm orange, yellow, and red tones
+   * - 'gold': Metallic gold, amber, and bronze tones
    * @default 'colorful'
    */
   colorVariant?: BorderBeamColorVariant;

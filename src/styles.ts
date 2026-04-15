@@ -147,6 +147,21 @@ const colorPalettes = {
     spike: { primary: 'rgb(255, 140, 80)', secondary: 'rgba(255, 100, 60, 0.98)' },
     spikeLt: { primary: 'rgb(200, 80, 40)', secondary: 'rgb(220, 120, 30)' },
   },
+  gold: {
+    border: [
+      { color: 'rgb(255, 215, 50)', pos: '33% -7.4%', size: '70px 40px' },
+      { color: 'rgb(230, 170, 30)', pos: '12% -5%', size: '60px 35px' },
+      { color: 'rgb(255, 230, 130)', pos: '2.1% 68.3%', size: '40px 70px' },
+      { color: 'rgb(200, 150, 20)', pos: '2.1% 68.3%', size: '20px 35px' },
+      { color: 'rgb(255, 200, 60)', pos: '74.4% 100%', size: '180px 32px' },
+      { color: 'rgb(235, 180, 50)', pos: '55% 100%', size: '85px 26px' },
+      { color: 'rgb(180, 120, 20)', pos: '93.9% 0%', size: '74px 32px' },
+      { color: 'rgb(250, 210, 90)', pos: '100% 27.1%', size: '26px 42px' },
+      { color: 'rgb(215, 160, 40)', pos: '100% 27.1%', size: '52px 48px' },
+    ],
+    spike: { primary: 'rgb(255, 215, 60)', secondary: 'rgba(200, 150, 30, 0.98)' },
+    spikeLt: { primary: 'rgb(180, 130, 20)', secondary: 'rgb(200, 150, 40)' },
+  },
 };
 
 /**
@@ -239,6 +254,28 @@ const smallColorPalettes = {
       { color: 'rgba(255, 120, 60, 0.4)', pos: '100% 27%', size: '10px 18px' },
       { color: 'rgba(255, 200, 50, 0.3)', pos: '100% 27%', size: '5px 10px' },
       { color: 'rgba(255, 90, 70, 0.3)', pos: '100% 27%', size: '11px 12px' },
+    ],
+  },
+  gold: {
+    border: [
+      { color: 'rgb(255, 215, 50)', pos: '2% 68%', size: '9px 18px' },
+      { color: 'rgb(230, 170, 30)', pos: '2% 68%', size: '4px 8px' },
+      { color: 'rgb(200, 150, 20)', pos: '72% -3%', size: '59px 9px' },
+      { color: 'rgb(250, 210, 90)', pos: '74% 100%', size: '42px 7px' },
+      { color: 'rgb(180, 120, 20)', pos: '100% 27%', size: '10px 17px' },
+      { color: 'rgb(235, 180, 50)', pos: '100% 27%', size: '10px 18px' },
+      { color: 'rgb(255, 230, 130)', pos: '100% 27%', size: '5px 10px' },
+      { color: 'rgb(215, 160, 40)', pos: '100% 27%', size: '11px 12px' },
+    ],
+    inner: [
+      { color: 'rgba(255, 215, 50, 0.5)', pos: '2% 68%', size: '9px 18px' },
+      { color: 'rgba(230, 170, 30, 0.45)', pos: '2% 68%', size: '4px 8px' },
+      { color: 'rgba(200, 150, 20, 0.35)', pos: '72% -3%', size: '59px 9px' },
+      { color: 'rgba(250, 210, 90, 0.35)', pos: '74% 100%', size: '42px 7px' },
+      { color: 'rgba(180, 120, 20, 0.3)', pos: '100% 27%', size: '10px 17px' },
+      { color: 'rgba(235, 180, 50, 0.4)', pos: '100% 27%', size: '10px 18px' },
+      { color: 'rgba(255, 230, 130, 0.3)', pos: '100% 27%', size: '5px 10px' },
+      { color: 'rgba(215, 160, 40, 0.3)', pos: '100% 27%', size: '11px 12px' },
     ],
   },
 };
@@ -382,6 +419,30 @@ const lineColorPalettes = {
       { color: 'rgb(180, 50, 50)', sizeW: 30, sizeH: 30, offsetX: -110, offsetY: -1 },
     ],
   },
+  gold: {
+    dark: [
+      { color: 'rgb(255, 215, 60)', sizeW: 36, sizeH: 36, offsetX: 0, offsetY: 2 },
+      { color: 'rgb(230, 170, 30)', sizeW: 30, sizeH: 32, offsetX: 39, offsetY: 0 },
+      { color: 'rgb(255, 230, 130)', sizeW: 33, sizeH: 28, offsetX: -36, offsetY: 2 },
+      { color: 'rgb(200, 150, 20)', sizeW: 29, sizeH: 34, offsetX: -54, offsetY: 0 },
+      { color: 'rgb(250, 210, 90)', sizeW: 27, sizeH: 30, offsetX: 51, offsetY: -1 },
+      { color: 'rgb(180, 120, 20)', sizeW: 36, sizeH: 24, offsetX: 21, offsetY: 1 },
+      { color: 'rgb(235, 180, 50)', sizeW: 30, sizeH: 22, offsetX: -21, offsetY: 0 },
+      { color: 'rgb(215, 160, 40)', sizeW: 25, sizeH: 28, offsetX: 66, offsetY: 1 },
+      { color: 'rgb(255, 200, 70)', sizeW: 23, sizeH: 30, offsetX: -66, offsetY: -1 },
+    ],
+    light: [
+      { color: 'rgb(200, 150, 20)', sizeW: 45, sizeH: 36, offsetX: 0, offsetY: 2 },
+      { color: 'rgb(180, 130, 10)', sizeW: 35, sizeH: 32, offsetX: 65, offsetY: 0 },
+      { color: 'rgb(220, 170, 30)', sizeW: 40, sizeH: 28, offsetX: -60, offsetY: 2 },
+      { color: 'rgb(160, 110, 10)', sizeW: 35, sizeH: 34, offsetX: -90, offsetY: 0 },
+      { color: 'rgb(210, 160, 20)', sizeW: 38, sizeH: 30, offsetX: 85, offsetY: -1 },
+      { color: 'rgb(150, 100, 10)', sizeW: 50, sizeH: 24, offsetX: 35, offsetY: 1 },
+      { color: 'rgb(190, 140, 20)', sizeW: 40, sizeH: 22, offsetX: -35, offsetY: 0 },
+      { color: 'rgb(170, 120, 10)', sizeW: 35, sizeH: 28, offsetX: 110, offsetY: 1 },
+      { color: 'rgb(140, 90, 10)', sizeW: 30, sizeH: 30, offsetX: -110, offsetY: -1 },
+    ],
+  },
 };
 
 function getLineColorGradients(colorVariant: BorderBeamColorVariant, isDark: boolean, id: string): string {
@@ -440,6 +501,17 @@ const lineInnerGradientData = {
     { color: 'rgba(255, 160, 80, 0.40)', sizeW: 25, sizeH: 18, offsetX: -21, offsetY: -2 },
     { color: 'rgba(255, 90, 60, 0.45)', sizeW: 21, sizeH: 24, offsetX: 66, offsetY: 0 },
     { color: 'rgba(255, 70, 70, 0.52)', sizeW: 18, sizeH: 26, offsetX: -66, offsetY: -1 },
+  ],
+  gold: [
+    { color: 'rgba(255, 215, 60, 0.48)', sizeW: 33, sizeH: 30, offsetX: 0, offsetY: 0 },
+    { color: 'rgba(230, 170, 30, 0.42)', sizeW: 24, sizeH: 26, offsetX: 39, offsetY: -3 },
+    { color: 'rgba(255, 230, 130, 0.48)', sizeW: 27, sizeH: 24, offsetX: -36, offsetY: 0 },
+    { color: 'rgba(200, 150, 20, 0.42)', sizeW: 23, sizeH: 28, offsetX: -54, offsetY: -2 },
+    { color: 'rgba(250, 210, 90, 0.50)', sizeW: 24, sizeH: 24, offsetX: 51, offsetY: -1 },
+    { color: 'rgba(180, 120, 20, 0.45)', sizeW: 30, sizeH: 20, offsetX: 21, offsetY: 0 },
+    { color: 'rgba(235, 180, 50, 0.40)', sizeW: 25, sizeH: 18, offsetX: -21, offsetY: -2 },
+    { color: 'rgba(215, 160, 40, 0.45)', sizeW: 21, sizeH: 24, offsetX: 66, offsetY: 0 },
+    { color: 'rgba(255, 200, 70, 0.52)', sizeW: 18, sizeH: 26, offsetX: -66, offsetY: -1 },
   ],
 };
 
@@ -532,6 +604,26 @@ const lineBloomColors = {
         { color1: 'rgb(180, 40, 20)', color2: 'rgba(180, 40, 20, 0.82)' },
         { color1: 'rgb(210, 80, 10)', color2: 'rgba(210, 80, 10, 0.7)' },
         { color1: 'rgb(190, 70, 30)', color2: 'rgba(190, 70, 30, 0.78)' },
+      ],
+    },
+  },
+  gold: {
+    dark: {
+      spikes: [
+        { color1: 'rgb(255, 215, 60)', color2: 'rgb(255, 215, 60)' },
+        { color1: 'rgba(230, 170, 30, 0.59)', color2: 'rgba(230, 170, 30, 0.29)' },
+        { color1: 'rgb(255, 230, 130)', color2: 'rgb(255, 230, 130)' },
+        { color1: 'rgba(200, 150, 20, 0.91)', color2: 'rgba(200, 150, 20, 0.45)' },
+        { color1: 'rgb(235, 180, 50)', color2: 'rgb(235, 180, 50)' },
+      ],
+    },
+    light: {
+      spikes: [
+        { color1: 'rgb(180, 130, 20)', color2: 'rgba(180, 130, 20, 0.8)' },
+        { color1: 'rgba(200, 150, 30, 0.7)', color2: 'rgba(200, 150, 30, 0.46)' },
+        { color1: 'rgb(160, 110, 10)', color2: 'rgba(160, 110, 10, 0.82)' },
+        { color1: 'rgb(190, 140, 20)', color2: 'rgba(190, 140, 20, 0.7)' },
+        { color1: 'rgb(150, 100, 10)', color2: 'rgba(150, 100, 10, 0.78)' },
       ],
     },
   },
